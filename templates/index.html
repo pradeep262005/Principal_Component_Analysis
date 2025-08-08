@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CKD PCA Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+
+        th,
+        td {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        th {
+            background-color: #555;
+            color: white;
+        }
+
+        img {
+            max-width: 600px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PCA on CKD Dataset</h1>
+
+    <table>
+        <tr>
+            <th>Index</th>
+            <th>PC1</th>
+            <th>PC2</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row.pc1 }}</td>
+            <td>{{ row.pc2 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>PCA Scatter Plot</h2>
+    <img src="{{ url_for('static', filename='pca_plot.png') }}" alt="PCA Scatter Plot">
+</body>
+
+</html>
